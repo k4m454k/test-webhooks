@@ -75,7 +75,7 @@ pipeline {
                 }
             }
         }
-        failure {
+//        failure {
 //            script {
 //                setBuildStatus("Build failed", "FAILURE");
 //                // pullRequest.comment("Job completed with errors 🤔")
