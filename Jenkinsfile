@@ -64,6 +64,16 @@ pipeline {
                 sh './main_script.sh'
             }
         }
+        stage("build") {
+            steps {
+                script {
+                    build(job: "test_parameters",
+                        parameters:
+                        [string(name: 'PATHTOJOB', value: "/I/parameterized/path"),
+                        ])
+                }
+            }
+        }
     }
 
     post {
