@@ -70,14 +70,16 @@ pipeline {
         success {
             script {
                 setBuildStatus("Build succeeded", "SUCCESS");
-                // pullRequest.comment("🌞 Job completed successfully")
+                if (env.CHANGE_ID) {
+                    pullRequest.comment("🌞 Job completed successfully")
+                }
             }
         }
         failure {
-            script {
-                setBuildStatus("Build failed", "FAILURE");
-                // pullRequest.comment("Job completed with errors 🤔")
-            }
-        }
+//            script {
+//                setBuildStatus("Build failed", "FAILURE");
+//                // pullRequest.comment("Job completed with errors 🤔")
+//            }
+//        }
     }
 }
